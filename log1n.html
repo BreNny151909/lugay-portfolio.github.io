@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Modern Login</title>
+
+<link rel="stylesheet" href="log1n.css">
+
+
+</head>
+
+<body>
+
+<div class="login-box">
+<h2>Login</h2>
+
+<div class="input-group">
+<input type="text" id="username" placeholder="Username">
+</div>
+
+<div class="input-group">
+<input type="password" id="password" placeholder="Password">
+<span class="toggle" onclick="togglePassword()">👁</span>
+</div>
+
+<div id="error" class="error"></div>
+
+<button onclick="login()">Login</button>
+
+</div>
+
+<script>
+
+function togglePassword(){
+    var pass = document.getElementById("password");
+
+    if(pass.type === "password"){
+        pass.type = "text";
+    }else{
+        pass.type = "password";
+    }
+}
+
+function login(){
+
+    var user = document.getElementById("username").value;
+    var pass = document.getElementById("password").value;
+    var error = document.getElementById("error");
+
+    if(user === "brenn justine" && pass === "brennjustine15"){
+        window.location.href = "log2n.html"; // redirect page
+    }
+
+    else if(user === "brenn" && pass !== "justine"){
+        error.textContent = "❌ Wrong password";
+    } 
+    else if(user !== "brenn" && pass === "justine"){
+        error.textContent = "❌ Wrong password";
+    }
+    else if(user !== "brenn" && pass !== "justine"){
+        error.textContent = "❌ Username and Passowrd not found";
+    }
+
+    else{
+        error.textContent = "❌ Username not found";
+    }
+
+}
+
+</script>
+
+</body>
+</html>
